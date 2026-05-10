@@ -27,10 +27,10 @@
       "settings": {
         "clients": [
           {
-            "id": "a19f1303-d185-46d3-9e2e-91449748c06c",
+            "id": "31d170a9-e798-4436-82b1-db1f0a2519d3",
             "flow": "",
             "level": 0,
-            "email": "user@rezz"
+            "email": "user@rezajon"
           }
         ],
         "decryption": "none"
@@ -74,6 +74,32 @@
       }
     }
   ],
+  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "ip": [
+          "geoip:private"
+        ],
+        "outboundTag": "block"
+      },
+      {
+        "type": "field",
+        "protocol": [
+          "bittorrent"
+        ],
+        "outboundTag": "block"
+      },
+      {
+        "type": "field",
+        "domain": [
+          "geosite:category-ads-all"
+        ],
+        "outboundTag": "block"
+      }
+    ]
+  },
   "policy": {
     "levels": {
       "0": {
